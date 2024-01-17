@@ -18,28 +18,32 @@ from pyshorteners import *
 logging.config.fileConfig('logging.conf')
 logging.getLogger().setLevel(logging.INFO)
 
-class Bot(Client):
-
-    def __init__(self):
-        super().__init__(
-            "shortener",
-            api_id=API_ID,
-            api_hash=API_HASH,
-            bot_token=BOT_TOKEN,
-            plugins=dict(root="plugins")
-        )
-    async def start(self):
-            me = await self.get_me()
-            self.owner = await self.get_users(int(OWNER_ID))
-            self.username = f'@{me.username}'
-            temp.BOT_USERNAME = me.username
-            temp.FIRST_NAME = me.first_name
-            if not await db.get_bot_stats():
-                await db.create_stats()
-            banned_users = await filter_users({"banned": True})
-            async for user in banned_users:
-                temp.BANNED_USERS.append(user["user_id"])
-            logging.info(LOG_STR)
-            await broadcast_admins(self, '** Bot started successfully **\n\nBot By @GreyMatter_Bots')
-            logging.info('Bot started\n\nBot By @DKBOTZ')
+NOBIDEVELOPER = Client(
+        "Mdisk-Pro",
+        bot_token=BOT_TOKEN,
+        api_id=API_ID,
+        api_hash=API_HASH,
+        plugins=plugins
+    )
   
+    async def start(self):
+        me = await self.get_me()
+        self.owner = await self.get_users(int(OWNER_ID))
+        self.username = f'@{me.username}'
+        temp.BOT_USERNAME = me.username
+        temp.FIRST_NAME = me.first_name
+        if not await db.get_bot_stats():
+            await db.create_stats()
+        banned_users = await filter_users({"banned": True})
+        async for user in banned_users:
+            temp.BANNED_USERS.append(user["user_id"])
+        logging.info(LOG_STR)
+        await broadcast_admins(self, '** Bot started successfully **\n\nBot By @NobiDeveloper')
+        logging.info('Bot started')
+
+
+    NOBIDEVELOPER.run()
+
+    async def stop(self, *args):
+        await super().stop()
+        logging.info("Bot stopped. Bye.")
