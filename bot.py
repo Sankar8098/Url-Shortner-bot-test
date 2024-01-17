@@ -30,7 +30,7 @@ class Bot(Client):
         )
 
     async def start(self):
-        await bot.start(self)
+        await self.start(self)
         me = await self.get_me()
         self.owner = await self.get_users(int(OWNER_ID))
         self.username = f'@{me.username}'
