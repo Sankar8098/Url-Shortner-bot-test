@@ -29,9 +29,8 @@ class Bot(Client):
             plugins=dict(root="plugins")
         )
     async def start(self):
-    await super().start()
-    me = await self.get_me()
-    self.owner = await self.get_users(int(OWNER_ID))
+        me = await self.get_me()
+        self.owner = await self.get_users(int(OWNER_ID))
     self.username = f'@{me.username}'
     temp.BOT_USERNAME = me.username
     temp.FIRST_NAME = me.first_name
