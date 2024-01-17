@@ -47,7 +47,7 @@ class Bot(Client):
         logging.info('Bot started')
 
 
-    NOBIDEVELOPER.run()
+    Bot.run()
 
     async def stop(self, *args):
         await super().stop()
