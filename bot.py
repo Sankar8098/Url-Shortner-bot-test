@@ -46,4 +46,6 @@ class NobideveloperClient(Client):
         await super().stop()
         logging.info("Bot stopped. Bye.")
         
-    NOBIDEVELOPER.run()
+    if __name__ == '__main__':
+    client = NobideveloperClient()
+    client.run()
