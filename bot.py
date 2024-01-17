@@ -36,10 +36,10 @@ class Bot(Client):
             temp.FIRST_NAME = me.first_name
             if not await db.get_bot_stats():
                 await db.create_stats()
-    banned_users = await filter_users({"banned": True})
-    async for user in banned_users:
-        temp.BANNED_USERS.append(user["user_id"])
-    logging.info(LOG_STR)
-    await broadcast_admins(self, '** Bot started successfully **\n\nBot By @GreyMatter_Bots')
-    logging.info('Bot started\n\nBot By @DKBOTZ')
+            banned_users = await filter_users({"banned": True})
+            async for user in banned_users:
+                temp.BANNED_USERS.append(user["user_id"])
+            logging.info(LOG_STR)
+            await broadcast_admins(self, '** Bot started successfully **\n\nBot By @GreyMatter_Bots')
+            logging.info('Bot started\n\nBot By @DKBOTZ')
   
