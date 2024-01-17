@@ -29,6 +29,8 @@ LOG_CHANNEL = int(os.environ.get("LOG_CHANNEL", "-1001870015374"))
 # For Force Subscription
 UPDATE_CHANNEL = os.environ.get("UPDATE_CHANNEL", "SK_MoviesOffl")
 
+BASE_SITE = os.environ.get("BASE_SITE", "krownlinks.com")
+
 # true if forward should be avoided
 BROADCAST_AS_COPY = os.environ.get('BROADCAST_AS_COPY', "True")
 
