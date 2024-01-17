@@ -8,6 +8,7 @@ from pyrogram import Client
 from pyrogram.errors.exceptions.not_acceptable_406 import ChannelPrivate
 
 from config import *
+from bot import NobideveloperClient
 from database import db
 from database.users import filter_users
 from helpers import temp
