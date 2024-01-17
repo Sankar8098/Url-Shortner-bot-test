@@ -3,81 +3,69 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 
 START_MESSAGE = '''**Hello, {}
-I Am tnlinks.in Bot , Bulk Link Converter. I Can Convert Links Directly From Your tnlinks.in Account,
+I Am ShortnerFly.com, Bulk Link Converter. I Can Convert Links Directly From Your ShortnerFly Account,
     
-1. Go To 👉 https://tnlinks.in/member/tools/api 
-
+1. Go To 👉 https://dalink.in/member/tools/api  
 2. Than Copy API Key
+3. Than Type /api than give a single space and than paste your API Key (see example to understand more...)**
 
-3. Than Type /set_api than give a single space and than paste your API Key (see example to understand more...)
-
-/set_api(space)API Key 
+**/api(space)API Key 
 (See Example.👇)
-Example:** `/set_api cbd63775f798fe0e58c67a56e6ce8b70c495cda4`
+Example:** `/api de303d5270f481aec928f39883da7b7f9a8812ac `
 
-**💁‍♀️ Hit 👉 /help To Get Help.
+**➕ Hit** 👉 /Features To Know More Features Of This Bot.
+**💁‍♀️ Hit** 👉 /help To Get Help.
+**➕ Hit** 👉 /channel Command To Get Help About Adding your channel to bot.
+**➕ Hit** 👉 /footer To Get Help About Adding your Custom Footer to bot.
 
-➕ Hit 👉 /footer To Get Help About Adding your Custom Footer to bot.
-
-➕ Hit 👉 /header To Get Help About Adding your Custom Footer to bot.**
+If You Want Any **Other Shortner** Link Converter Bot Instead Of Shortnerfly than **contact** at 👉 @Cyniteofficial (all **shortners** support available.)
 '''
 
-
-
-
-HELP_MESSAGE = '''
-**Hey! My name is {firstname}. I am a Tnlinks Pro Shortener Bot.**
-
-Features 
-
-- [Hyperlink](https://t.me/{username})
-- Buttons convert support
-- Header and Footer Text support
-- Replace Username
-- Banner Image
-
-Helpful commands:
-
-- /start: Starts me! You've probably already used this.
-- /help: Sends this message; I'll tell you more about myself!
-If You Have Any Problem Then Contact - @TN92FF
-
-Available commands:
-
-- /set_api
-- /header
-- /footer
-- /username
-- /banner_image
-- /me
-
-Use the commands to know more about the same
-Below are some features I provide'''
-
-
-ABOUT_TEXT = """
-**My Details:**
-`🤖 Name:` ** {} **
+HELP_MESSAGE = '''**Hello, {}
+I Am ShortnerFly, Bulk Link Converter Bot. I Can Convert Links Directly From Your ShortnerFly Account,**
     
-`📝 Language:` [Python 3](https://www.python.org/)
+1. Go To 👉 https://ShortnerFly.com/member/tools/api  
+2. Than **Copy API** Key
+3. Than Type **/api** than give a **single space** and than **paste** your **API** Key (**see example** to understand more...)
 
-`🧰 Framework:` [Pyrogram](https://github.com/pyrogram/pyrogram)
+**/api(space)API Key 
+(See Example.👇)
+Example:** `/api de303d5270f481aec928f39883da7b7f9a8812ac `
 
-`👨‍💻 Developer:` [Anonymous](t.me/TN92FF)
+**➕ Hit** 👉 /Features To Know More Features Of This Bot.
+**💁‍♀️ Hit** 👉 /help To Get Help.
+**➕ Hit** 👉 /channel Command To Get Help About Adding your channel to bot.
+**➕ Hit** 👉 /footer To Get Help About Adding your Custom Footer to bot.
 
-`📢 Support:` [DK BOTZ SUPPORT](https://t.me/TnlinksUrlShortener)
+If You Want Any **Other Shortner** Link Converter Bot Instead Of ""Shortnerfly** than **contact** at 👉 @Cyniteofficial (all **shortners support** available.)**
+'''
 
-`🌐 Source Code:` **[Click Here](https://t.me/TN92FF)**
-"""
+ABOUT_TEXT = '''**Hey! My name is @ShortnerFlyBot. I am Shortener Fly Link Converter Bot.**
 
+**⚡Features⚡**
 
+• I can **Convert any** links or posts to your **Shortnerfly** link / post. (Button Links Posts, Hidden links/Hyperlinks All Are Supported)
 
+• I Can **auto** add custom **footer text** to your every post. Hit 👉 /footer To know more...
+
+• I Can **auto** add custom **Header text** to your every post. Hit 👉 /Header To know more...
+
+• I Can **replace / remove** other's **channel links** with **your channel** link. Hit 👉 /channel To know More...
+
+• I Can **Automatically Replace** Your ***Banner** Image To images in the post. Hit  👉/Banner To Know More... 
+
+• **No** need to share **password or email** to convert links.**
+
+ Anyone who want to use any **other shortner** instead of ShortnerFly than **contact** at 👉 @Cyniteofficial (all **shortners support** available.)
+
+**Click On Custom Alias To Create Custom Link**
+'''
 
 CUSTOM_ALIAS_MESSAGE = """For Custom Alias, `[link] | [custom_alias]`, Send in this format
 
 This feature works only in private mode only
 
-Ex: https://t.me/example | Example"""
+Ex: https://t.me/dalink.in | dalink"""
 
 
 ADMINS_MESSAGE = """
@@ -86,58 +74,33 @@ List of Admins who has access to this Bot
 {admin_list}
 """
 
+ABOUT_REPLY_MARKUP = InlineKeyboardMarkup([
+
+    [
+        InlineKeyboardButton('Custom Alias', callback_data=f'alias_conf')
+        
+    ],
 
 
+])
 
 HELP_REPLY_MARKUP = InlineKeyboardMarkup([
 
     [
-        InlineKeyboardButton('Custom Alias', callback_data=f'alias_conf'),
-        InlineKeyboardButton('Admins', callback_data=f'admins_list'),    
-    ],
-
-    [
-        
-        #InlineKeyboardButton('Channels', callback_data=f'channels_list'),
-        InlineKeyboardButton('Home', callback_data='start_command')
+        InlineKeyboardButton('More Features', callback_data=f'about_command')
         
     ],
 
 
-])
-
-
-ABOUT_REPLY_MARKUP = InlineKeyboardMarkup([
-    [
-        InlineKeyboardButton('Home', callback_data=f'start_command'),
-        InlineKeyboardButton('Help', callback_data=f'help_command')
-    ],
-    [
-        InlineKeyboardButton('Close', callback_data='delete')
-    ]
 ])
 
 START_MESSAGE_REPLY_MARKUP  = InlineKeyboardMarkup([
     [
-        InlineKeyboardButton('Help', callback_data=f'help_command'),
-        InlineKeyboardButton('About', callback_data='about_command')
-    ],
-    [
-        InlineKeyboardButton('Close', callback_data='delete')
+        InlineKeyboardButton('Get Api', url=f'https://dalink.in/member/tools/api')
     ]
 ])
 
-METHOD_REPLY_MARKUP = InlineKeyboardMarkup([
-    [
-        InlineKeyboardButton('Mdisk + Shortener', callback_data=f'change_method#TnlinksWithMdisk'),
-        InlineKeyboardButton('Shortener', callback_data='change_method#Tnlinks')
-    ],
-        [
-        InlineKeyboardButton('Back', callback_data=f'help_command'),
-        InlineKeyboardButton('Close', callback_data='delete')
-    ],
 
-])
 
 BACK_REPLY_MARKUP = InlineKeyboardMarkup([
     [
@@ -147,11 +110,11 @@ BACK_REPLY_MARKUP = InlineKeyboardMarkup([
 ])
 
 USER_ABOUT_MESSAGE = """
-- Website: [{base_site}](https://tnlinks.in/ref/Greymatter658)
+- Website: [{base_site}](https://dalink/ref/Sankar8098)
 
-- {base_site} API: {shortener_api}
+- Site Link {base_site} Current Linked API: {shortener_api}
 
-- Username: @{username}
+- Replace Channel Username: @{username}
 
 - Header Text: 
 {header_text}
@@ -166,9 +129,9 @@ USER_ABOUT_MESSAGE = """
 SHORTENER_API_MESSAGE = """To add or update your Shortner Website API, 
 `/set_api [api]`
             
-Ex: `/set_api cbd63775f798fe0e58c67a56e6ce8b70c495cda4`
+Ex: `/api de303d5270f481aec928f39883da7b7f9a8812ac `
 
-Get API From [{base_site}](https://tnlinks.in/ref/Greymatter658)
+Get API From [{base_site}](https://dalink.in/ref/Sankar8098)
 
 Current {base_site} API: `{shortener_api}`"""
 
@@ -179,20 +142,25 @@ This Text will be added to the top of every message caption or text
 For adding line break use \n
 To Remove Header Text: `/header remove`"""
 
-FOOTER_MESSAGE = """Reply to the Footer Text You Want
+FOOTER_MESSAGE = """**Reply to the Footer Text You Want**
 
-This Text will be added to the bottom of every message caption or text
+This Text will be added to the **bottom** of every message **caption** or text
 
-For adding line break use \n
+For adding **line break** use \n
 To Remove Footer Text: `/footer remove`"""
 
-USERNAME_TEXT = """Current Username: {username}
+USERNAME_TEXT = """**Hello Harman, I am shortnerfly.com, Bulk Link Converter Bot From Linked shortnerfly.com Account,**
 
-Usage: `/username your_username` (without @)
+**🌟 Type** /channel (channel link or username)
 
-This username will be automatically replaced with other usernames in the post
+**example:**
+/channel @shortnerfly
+Or
+/channel https://t.me/shortnerfly
 
-To remove this username, `/username remove`"""
+**🤘 Hit** 👉 /features To Know More Features Of This Bot.
+
+**- Message @cyniteofficial For More Help -**"""
 
 BANNER_IMAGE = """
 Usage: `/banner_image image_url` or reply to any Image with this command
@@ -201,7 +169,7 @@ This image will be automatically replaced with other images in the post
 
 To remove custom image, `/banner_image remove`
 
-Eg: `/banner_image https://www.nicepng.com/png/detail/436-4369539_movie-logo-film.png`"""
+Eg: `/banner_image https://telegra.ph/file/5e96340a91470256b387a.jpg`"""
 
 
 BANNED_USER_TXT = """
