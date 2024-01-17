@@ -65,7 +65,7 @@ CUSTOM_ALIAS_MESSAGE = """For Custom Alias, `[link] | [custom_alias]`, Send in t
 
 This feature works only in private mode only
 
-Ex: https://t.me/dalink.in | dalink"""
+Ex: https://t.me/krownlinks.com | krownlinks"""
 
 
 ADMINS_MESSAGE = """
@@ -96,7 +96,7 @@ HELP_REPLY_MARKUP = InlineKeyboardMarkup([
 
 START_MESSAGE_REPLY_MARKUP  = InlineKeyboardMarkup([
     [
-        InlineKeyboardButton('Get Api', url=f'https://dalink.in/member/tools/api')
+        InlineKeyboardButton('Get Api', url=f'https://krownlinks.com/member/tools/api')
     ]
 ])
 
@@ -110,7 +110,7 @@ BACK_REPLY_MARKUP = InlineKeyboardMarkup([
 ])
 
 USER_ABOUT_MESSAGE = """
-- Website: [{base_site}](https://dalink/ref/Sankar8098)
+- Website: [{base_site}](https://krownlinks.com/ref/Sankar8098)
 
 - Site Link {base_site} Current Linked API: {shortener_api}
 
@@ -131,7 +131,7 @@ SHORTENER_API_MESSAGE = """To add or update your Shortner Website API,
             
 Ex: `/api de303d5270f481aec928f39883da7b7f9a8812ac `
 
-Get API From [{base_site}](https://dalink.in/ref/Sankar8098)
+Get API From [{base_site}](https://krownlinks.com/ref/Sankar8098)
 
 Current {base_site} API: `{shortener_api}`"""
 
