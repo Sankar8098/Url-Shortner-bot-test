@@ -1,4 +1,4 @@
-from bot import Bot
+from bot import NobideveloperClient
 
 if __name__ == '__main__':
-    Bot().run()
+    NobideveloperClient().run()
