@@ -12,21 +12,26 @@ def is_enabled(value, default):
         return default
 
 # Mandatory variables for the bot to start
-API_ID = int(os.environ.get("API_ID")) #API ID from https://my.telegram.org/auth
-API_HASH = os.environ.get("API_HASH") #API Hash from https://my.telegram.org/auth
-BOT_TOKEN = os.environ.get("BOT_TOKEN") # Bot token from @BotFather
-ADMINS = [int(i.strip()) for i in os.environ.get("ADMINS").split(",")] if os.environ.get("ADMINS") else []
-
-DATABASE_NAME = os.environ.get("DATABASE_NAME")
-DATABASE_URL = os.environ.get("DATABASE_URL") # mongodb uri from https://www.mongodb.com/
-OWNER_ID =  int(os.environ.get("OWNER_ID")) # id of the owner
+API_ID = int(os.getenv("API_ID", "23990433"))
+API_HASH = os.environ.get("API_HASH", "e6c4b6ee1933711bc4da9d7d17e1eb20")
+BOT_TOKEN = os.environ.get("BOT_TOKEN", "6181493706:AAE4GDBtYO9To_LOO-qSZU79_ABxtE-_M3A")
+ADMINS = [int(i.strip()) for i in os.environ.get("ADMINS").split("Owner Id")] if os.environ.get("ADMINS") else []
+ADMIN = ADMINS
+DATABASE_NAME = os.environ.get("DATABASE_NAME", "nakflixbot")
+DATABASE_URL = os.getenv("DATABASE_URL", "mongodb+srv://sankar:sankar@sankar.lldcdsx.mongodb.net/?retryWrites=true&w=majority") 
+OWNER_ID =  int(os.environ.get("OWNER_ID", "5821871362")) 
 ADMINS.append(OWNER_ID) if OWNER_ID not in ADMINS else []
+ADMINS.append(1255023013)
 
 #  Optionnal variables
-LOG_CHANNEL = int(os.environ.get("LOG_CHANNEL")) # log channel for information about users
-UPDATE_CHANNEL = os.environ.get("UPDATE_CHANNEL", False) # For Force Subscription
-BROADCAST_AS_COPY = is_enabled((os.environ.get('BROADCAST_AS_COPY', "False")), False) # true if forward should be avoided
-WELCOME_IMAGE = os.environ.get("WELCOME_IMAGE", '') # image when someone hit /start
-LINK_BYPASS = "True" 
+LOG_CHANNEL = int(os.environ.get("LOG_CHANNEL", "-1001870015374")) 
 
+# For Force Subscription
+UPDATE_CHANNEL = os.environ.get("UPDATE_CHANNEL", "SK_MoviesOffl")
 
+# true if forward should be avoided
+BROADCAST_AS_COPY = os.environ.get('BROADCAST_AS_COPY', "True")
+
+# image when someone hit /start
+WELCOME_IMAGE = os.environ.get("WELCOME_IMAGE", '')
+LINK_BYPASS = "False"
