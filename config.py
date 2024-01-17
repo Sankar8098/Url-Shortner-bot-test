@@ -15,7 +15,7 @@ def is_enabled(value, default):
 API_ID = int(os.getenv("API_ID", "23990433"))
 API_HASH = os.environ.get("API_HASH", "e6c4b6ee1933711bc4da9d7d17e1eb20")
 BOT_TOKEN = os.environ.get("BOT_TOKEN", "6181493706:AAE4GDBtYO9To_LOO-qSZU79_ABxtE-_M3A")
-ADMINS = [int(i.strip()) for i in os.environ.get("ADMINS").split("Owner Id")] if os.environ.get("ADMINS") else []
+ADMINS = [int(i.strip()) for i in os.environ.get("ADMINS").split("5821871362")] if os.environ.get("ADMINS") else []
 ADMIN = ADMINS
 DATABASE_NAME = os.environ.get("DATABASE_NAME", "nakflixbot")
 DATABASE_URL = os.getenv("DATABASE_URL", "mongodb+srv://sankar:sankar@sankar.lldcdsx.mongodb.net/?retryWrites=true&w=majority") 
