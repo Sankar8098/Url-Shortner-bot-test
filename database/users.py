@@ -12,13 +12,13 @@ async def get_user(user_id):
     if not user:
         res = {
             "user_id": user_id,
-            "method":"Tnlinks",
+            "method":"krownlinks.com",
             "shortener_api": None,
             "mdisk_api": None,
             "header_text": "",
             "footer_text": "",
             "username": None,
-            "base_site": "Tnlinks.in",
+            "base_site": "krownlinks.com",
             "banner_image": None,
             "is_banner_image": True,
             "is_username": True,
