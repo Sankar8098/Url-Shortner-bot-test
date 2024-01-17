@@ -1,33 +1,40 @@
+# © Nobideveloper
 import asyncio
 import datetime
 import logging
 import logging.config
 import sys
-
-from pyrogram import Client
-from pyrogram.errors.exceptions.not_acceptable_406 import ChannelPrivate
-
+from pyrogram import *
+from pyrogram.errors.exceptions.not_acceptable_406 import *
 from config import *
-from bot import NobideveloperClient
-from database import db
-from database.users import filter_users
-from helpers import temp
+from database import *
+from database.users import *
+from helpers import *
 from pyshorteners import *
-
-
-# Get logging configurations
 logging.config.fileConfig('logging.conf')
 logging.getLogger().setLevel(logging.INFO)
+import os
+import pyrogram
+logging.getLogger("pyrogram").setLevel(logging.WARNING)
+import logging
+logging.basicConfig(level=logging.DEBUG,
+                    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+logger = logging.getLogger(__name__)
 
-class NobideveloperClient(Client):
-    def __init__(self):
-        super().__init__(
-            "NobideveloperBot",
-            api_id=API_ID,
-            api_hash=API_HASH,
-            bot_token=BOT_TOKEN,
-            plugins=dict(root="plugins")
-        )
+
+if __name__ == "__main__" :
+
+    plugins = dict(
+        root="plugins"
+    )
+    NOBIDEVELOPER = Client(
+        "Mdisk-Pro",
+        bot_token=BOT_TOKEN,
+        api_id=API_ID,
+        api_hash=API_HASH,
+        plugins=plugins
+    )
+    
     async def start(self):
         me = await self.get_me()
         self.owner = await self.get_users(int(OWNER_ID))
@@ -43,10 +50,9 @@ class NobideveloperClient(Client):
         await broadcast_admins(self, '** Bot started successfully **\n\nBot By @NobiDeveloper')
         logging.info('Bot started')
 
+
+    NOBIDEVELOPER.run()
+
     async def stop(self, *args):
         await super().stop()
         logging.info("Bot stopped. Bye.")
-        
-    if __name__ == '__main__':
-    client = NobideveloperClient()
-    client.run()
