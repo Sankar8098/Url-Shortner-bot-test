@@ -17,7 +17,7 @@ from pyshorteners import *
 logging.config.fileConfig('logging.conf')
 logging.getLogger().setLevel(logging.INFO)
 
-    import logging  # Assuming logging is used in your code
+# Correct import statements
 from your_module import temp, db, filter_users, broadcast_admins  # Adjust these imports based on your actual structure
 
 class Bot(Client):
@@ -49,4 +49,4 @@ class Bot(Client):
     async def stop(self, *args):
         await broadcast_admins(self, '** Bot Stopped Bye **\n\nBot By @GreyMatter_Bots')
         await super().stop()
-        logging.info('Bot Stopped Bye\n\nBot By @GreyMatter_Bots') 
+        logging.info('Bot Stopped Bye\n\nBot By @GreyMatter_Bots')
