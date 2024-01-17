@@ -28,7 +28,6 @@ class Bot(Client):
             bot_token=BOT_TOKEN,
             plugins=dict(root="plugins")
         )
-
     async def start(self):
     await super().start()
     me = await self.get_me()
@@ -44,4 +43,3 @@ class Bot(Client):
     logging.info(LOG_STR)
     await broadcast_admins(self, '** Bot started successfully **\n\nBot By @GreyMatter_Bots')
     logging.info('Bot started\n\nBot By @DKBOTZ')
-
