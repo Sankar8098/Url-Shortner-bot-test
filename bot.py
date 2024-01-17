@@ -32,13 +32,24 @@ class Bot(Client):
         plugins=dict(root="plugins")
         )
 
-   async def start(client, message):
-    btn = [[
-        InlineKeyboardButton('Updates Channel', url=UPDATES_CHANNEL),
-        InlineKeyboardButton('Support Group', url=SUPPORT_GROUP)
-    ],[
-        InlineKeyboardButton('Deploy', url='https://github.com/pandaznetwork/Adlinkflyshortnerbot')
-    ]]
-    text = """**Just send me link and get short link, You can also send multiple links seperated by a space or enter."""
-    await message.reply(f"👋 Hello {message.from_user.mention},\n\nI'm {WEB_NAME} Shortner bot. {text}", reply_markup=InlineKeyboardMarkup(btn))    
+   async def start(self):
+        me = await self.get_me()
+        self.owner = await self.get_users(int(OWNER_ID))
+        self.username = f'@{me.username}'
+        temp.BOT_USERNAME = me.username
+        temp.FIRST_NAME = me.first_name
+        if not await db.get_bot_stats():
+            await db.create_stats()
+        banned_users = await filter_users({"banned": True})
+        async for user in banned_users:
+            temp.BANNED_USERS.append(user["user_id"])
+        logging.info(LOG_STR)
+        await broadcast_admins(self, '** Bot started successfully **\n\nBot By @NobiDeveloper')
+        logging.info('Bot started')
 
+
+    NOBIDEVELOPER.run()
+
+    async def stop(self, *args):
+        await super().stop()
+        logging.info("Bot stopped. Bye.")
