@@ -21,7 +21,7 @@ DATABASE_NAME = os.environ.get("DATABASE_NAME", "nakflixbot")
 DATABASE_URL = os.getenv("DATABASE_URL", "mongodb+srv://sankar:sankar@sankar.lldcdsx.mongodb.net/?retryWrites=true&w=majority") 
 OWNER_ID =  int(os.environ.get("OWNER_ID", "5821871362")) 
 ADMINS.append(OWNER_ID) if OWNER_ID not in ADMINS else []
-ADMINS.append(1255023013)
+ADMINS.append(5821871362)
 
 #  Optionnal variables
 LOG_CHANNEL = int(os.environ.get("LOG_CHANNEL", "-1001870015374")) 
