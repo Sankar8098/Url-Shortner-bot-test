@@ -29,16 +29,20 @@ class Bot(Client):
             plugins=dict(root="plugins")
         )
     async def start(self):
-        me = await self.get_me()
-        self.owner = await self.get_users(int(OWNER_ID))
+    me = await self.get_me()
+    self.owner = await self.get_users(int(OWNER_ID))
     self.username = f'@{me.username}'
     temp.BOT_USERNAME = me.username
     temp.FIRST_NAME = me.first_name
     if not await db.get_bot_stats():
-            await db.create_stats()
+        await db.create_stats()
     banned_users = await filter_users({"banned": True})
     async for user in banned_users:
         temp.BANNED_USERS.append(user["user_id"])
     logging.info(LOG_STR)
     await broadcast_admins(self, '** Bot started successfully **\n\nBot By @GreyMatter_Bots')
     logging.info('Bot started\n\nBot By @DKBOTZ')
+
+    # Now you can include the if statement inside the start function
+    if not await db.get_bot_stats():
+        # Your code here
