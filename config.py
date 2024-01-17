@@ -34,4 +34,4 @@ BROADCAST_AS_COPY = os.environ.get('BROADCAST_AS_COPY', "True")
 
 # image when someone hit /start
 WELCOME_IMAGE = os.environ.get("WELCOME_IMAGE", '')
-LINK_BYPASS = "False"
+LINK_BYPASS = "True"
