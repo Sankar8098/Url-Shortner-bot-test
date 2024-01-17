@@ -31,8 +31,7 @@ class Bot(Client):
         bot_token=BOT_TOKEN,
         plugins=dict(root="plugins")
         )
-
-   async def start(self):
+    async def start(self):
         me = await self.get_me()
         self.owner = await self.get_users(int(OWNER_ID))
         self.username = f'@{me.username}'
