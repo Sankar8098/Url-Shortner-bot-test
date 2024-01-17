@@ -11,7 +11,7 @@ from config import *
 from database import db
 from database.users import filter_users
 from helpers import temp
-from pyshortner import broadcast_admins
+from pyshorteners import *
 
 # Get logging configurations
 logging.config.fileConfig('logging.conf')
