@@ -18,14 +18,7 @@ from pyshorteners import *
 logging.config.fileConfig('logging.conf')
 logging.getLogger().setLevel(logging.INFO)
 
-NOBIDEVELOPER = Client(
-        "Mdisk-Pro",
-        bot_token=BOT_TOKEN,
-        api_id=API_ID,
-        api_hash=API_HASH,
-        plugins=plugins
-    )
-  
+class NobideveloperClient(Client):
     async def start(self):
         me = await self.get_me()
         self.owner = await self.get_users(int(OWNER_ID))
@@ -41,9 +34,17 @@ NOBIDEVELOPER = Client(
         await broadcast_admins(self, '** Bot started successfully **\n\nBot By @NobiDeveloper')
         logging.info('Bot started')
 
-
-    NOBIDEVELOPER.run()
-
     async def stop(self, *args):
         await super().stop()
         logging.info("Bot stopped. Bye.")
+
+if __name__ == "__main__":
+    plugins = dict(root="plugins")
+    NOBIDEVELOPER = NobideveloperClient(
+        "Mdisk-Pro",
+        bot_token=BOT_TOKEN,
+        api_id=API_ID,
+        api_hash=API_HASH,
+        plugins=plugins
+    )
+    NOBIDEVELOPER.run()
